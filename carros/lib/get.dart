@@ -11,6 +11,7 @@ class getCarros extends StatefulWidget {
 class _getCarrosState extends State<getCarros> {
   String? marca;
   String? modelo;
+  String? ano;
 
   @override
   void initState() {
@@ -27,6 +28,7 @@ class _getCarrosState extends State<getCarros> {
       setState(() {
         marca = data["marca"];
         modelo = data["modelo"];
+        ano = data["ano"];
       });
     });
   }
@@ -43,6 +45,8 @@ class _getCarrosState extends State<getCarros> {
               Text("$marca"),
               Text("Modelo: "),
               Text("$modelo"),
+              Text("Ano: "),
+              Text("$ano"),
             ],
           ),
         ),
