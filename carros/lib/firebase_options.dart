@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -36,10 +33,7 @@ class DefaultFirebaseOptions {
           'you can reconfigure this by running the FlutterFire CLI again.',
         );
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -59,4 +53,23 @@ class DefaultFirebaseOptions {
     projectId: 'integrador-13d3b',
     storageBucket: 'integrador-13d3b.firebasestorage.app',
   );
+
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyCJz3OFaT1q5N7oY_FosQ6w8jFx9W1NBsY',
+    appId: '1:241357483786:web:3bc6514387f11509e614f3',
+    messagingSenderId: '241357483786',
+    projectId: 'integrador-13d3b',
+    authDomain: 'integrador-13d3b.firebaseapp.com',
+    storageBucket: 'integrador-13d3b.firebasestorage.app',
+  );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyCJz3OFaT1q5N7oY_FosQ6w8jFx9W1NBsY',
+    appId: '1:241357483786:web:0aece8e212fa234ee614f3',
+    messagingSenderId: '241357483786',
+    projectId: 'integrador-13d3b',
+    authDomain: 'integrador-13d3b.firebaseapp.com',
+    storageBucket: 'integrador-13d3b.firebasestorage.app',
+  );
+
 }
