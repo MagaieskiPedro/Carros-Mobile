@@ -39,7 +39,10 @@ class _deleteCarroState extends State<deleteCarro> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text("Tela Delete")),
+        appBar: AppBar(
+          backgroundColor: Colors.cyan,
+          title: Text("Deletar Registros"),
+        ),
         body: valores == null
             ? Center(child: CircularProgressIndicator())
             : Center(
@@ -48,15 +51,23 @@ class _deleteCarroState extends State<deleteCarro> {
                   itemBuilder: (context, index) {
                     final item = valores![index];
                     return ListTile(
-                      title: Text("Marca, Modelo e Ano: "),
+                      tileColor: Colors.deepPurple,
+                      title: Text(
+                        "Marca, Modelo e Ano: ",
+                        style: TextStyle(color: Colors.white),
+                      ),
                       subtitle: Text(
                         "${item["marca"]},${item["modelo"]} e ${item["ano"]}",
+                        style: TextStyle(color: Colors.white),
                       ),
                       trailing: GestureDetector(
                         onTap: () {
                           deleteValue(item.id);
                         },
-                        child: Icon(Icons.delete),
+                        child: Icon(
+                          Icons.delete,
+                          color: Colors.deepOrangeAccent,
+                        ),
                       ),
                     );
                   },

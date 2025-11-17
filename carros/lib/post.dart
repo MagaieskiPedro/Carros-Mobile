@@ -14,6 +14,7 @@ class _postCarroState extends State<postCarro> {
   TextEditingController novaMarca = TextEditingController();
   TextEditingController novoModelo = TextEditingController();
   TextEditingController novoAno = TextEditingController();
+
   @override
   void initState() {
     super.initState();
@@ -27,12 +28,12 @@ class _postCarroState extends State<postCarro> {
         // JSON
         "marca": novaMarca.text,
         "modelo": novoModelo.text,
-        "ano": novoAno,
+        "ano": novoAno.text,
       });
     } catch (err) {
       // se houver erro, recebe mensagem
       setState(() {
-        erro = "Erro ao enviar a temperatura";
+        erro = "Erro ao enviar dados";
       });
     }
   }
@@ -41,17 +42,88 @@ class _postCarroState extends State<postCarro> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text("PostPage")),
+        appBar: AppBar(
+          backgroundColor: Colors.cyan,
+          title: Text("Publicar um registro"),
+        ),
         body: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Text("Insira uma marca"),
-              TextField(controller: novaMarca),
-              Text("Insira um modelo: "),
-              TextField(controller: novoModelo),
-              Text("Insira um ano: "),
-              TextField(controller: novoAno),
-              ElevatedButton(onPressed: postValue, child: Text("Enviar")),
+              SizedBox(height: 12),
+              Container(
+                width: 1850,
+                height: 400,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.deepPurple,
+                ),
+                child: Column(
+                  children: [
+                    Text(
+                      "Insira uma marca",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    SizedBox(
+                      width: 250,
+                      child: TextField(
+                        controller: novaMarca,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          fillColor: Colors.white,
+                          filled: true,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 40),
+                    Text(
+                      "Insira um modelo: ",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    SizedBox(
+                      width: 250,
+                      child: TextField(
+                        controller: novoModelo,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          fillColor: Colors.white,
+                          filled: true,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 40),
+                    Text(
+                      "Insira um ano: ",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    SizedBox(
+                      width: 250,
+                      child: TextField(
+                        controller: novoAno,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          fillColor: Colors.white,
+                          filled: true,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 40),
+                    ElevatedButton(
+                      onPressed: postValue,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors
+                            .deepOrangeAccent, // Sets the background color
+                        foregroundColor:
+                            Colors.white, // Sets the text and icon color
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                      ),
+                      child: Text("Publicar"),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
