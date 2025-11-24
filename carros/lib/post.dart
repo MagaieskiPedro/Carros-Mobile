@@ -14,6 +14,7 @@ class _postCarroState extends State<postCarro> {
   TextEditingController novaMarca = TextEditingController();
   TextEditingController novoModelo = TextEditingController();
   TextEditingController novoAno = TextEditingController();
+  TextEditingController novaImagem = TextEditingController();
 
   @override
   void initState() {
@@ -29,6 +30,7 @@ class _postCarroState extends State<postCarro> {
         "marca": novaMarca.text,
         "modelo": novoModelo.text,
         "ano": novoAno.text,
+        "imagem": novaImagem.text,
       });
     } catch (err) {
       // se houver erro, recebe mensagem
@@ -75,7 +77,7 @@ class _postCarroState extends State<postCarro> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 40),
+                    SizedBox(height: 20),
                     Text(
                       "Insira um modelo: ",
                       style: TextStyle(color: Colors.white),
@@ -91,7 +93,7 @@ class _postCarroState extends State<postCarro> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 40),
+                    SizedBox(height: 20),
                     Text(
                       "Insira um ano: ",
                       style: TextStyle(color: Colors.white),
@@ -107,7 +109,23 @@ class _postCarroState extends State<postCarro> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 40),
+                    SizedBox(height: 20),
+                    Text(
+                      "Insira uma URL de uma imagem: ",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    SizedBox(
+                      width: 250,
+                      child: TextField(
+                        controller: novaImagem,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          fillColor: Colors.white,
+                          filled: true,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 20),
                     ElevatedButton(
                       onPressed: postValue,
                       style: ElevatedButton.styleFrom(

@@ -52,6 +52,12 @@ class _deleteCarroState extends State<deleteCarro> {
                     final item = valores![index];
                     return ListTile(
                       tileColor: Colors.deepPurple,
+                      leading: Image.network(
+                        '${item["imagem"]}',
+                        width: 130,
+                        height: 100,
+                        fit: BoxFit.cover,
+                      ),
                       title: Text(
                         "Marca, Modelo e Ano: ",
                         style: TextStyle(color: Colors.white),

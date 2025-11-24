@@ -12,6 +12,7 @@ class _getCarrosState extends State<getCarros> {
   String? marca;
   String? modelo;
   String? ano;
+  String? imagem;
   List<dynamic>? valores;
 
   @override
@@ -30,6 +31,7 @@ class _getCarrosState extends State<getCarros> {
         marca = data["marca"];
         modelo = data["modelo"];
         ano = data["ano"];
+        imagem = data["imagem"];
       });
     });
   }
@@ -64,8 +66,14 @@ class _getCarrosState extends State<getCarros> {
                     return ListTile(
                       tileColor: Colors.deepPurple,
                       title: Text(
-                        "Marca | Modelo | Ano: ",
+                        "Marca | Modelo | Ano",
                         style: TextStyle(color: Colors.white),
+                      ),
+                      leading: Image.network(
+                        '${item["imagem"]}',
+                        width: 130,
+                        height: 100,
+                        fit: BoxFit.cover,
                       ),
                       subtitle: Text(
                         "${item["marca"]} | ${item["modelo"]} | ${item["ano"]}",
