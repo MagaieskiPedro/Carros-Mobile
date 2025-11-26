@@ -42,8 +42,7 @@ class _postCarroState extends State<postCarro> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return  Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.cyan,
           title: Text("Publicar um registro"),
@@ -55,7 +54,7 @@ class _postCarroState extends State<postCarro> {
               SizedBox(height: 12),
               Container(
                 width: 1850,
-                height: 400,
+                height: 500,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: Colors.deepPurple,
@@ -145,7 +144,6 @@ class _postCarroState extends State<postCarro> {
             ],
           ),
         ),
-      ),
-    );
+      );
   }
 }
