@@ -1,0 +1,14 @@
+Para publicar na playstore, use gere uma chave com: 
+keytool -genkey -v -keystore $env:"perfil do usuario"\upload-keystore.jks `
+        -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 `
+        -alias upload
+ira gerar uma chave no arquivo upload-keystore.jks na home
+crie um arquivo em carros-mobile/android/key.properties com esse formato
+storePassword=<senha do ultimo passo>
+keyPassword=<senha do ultimo passo>
+keyAlias=upload
+storeFile=<localizacao do upload-keystore.jks>
+
+rode flutter build apk
+
+entre no google play console e crie em create new app, siga os passos e de upload no arquivo
